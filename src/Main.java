@@ -15,6 +15,7 @@ public class Main {
             System.out.println("2 - Listar usuários");
             System.out.println("3 - Login");
             System.out.println("4 - Remover usuário");
+            System.out.println("5 - Atualizar usuário");
             System.out.println("0 - Sair");
             System.out.println("==================================");
             System.out.print("Escolha uma opção: ");
@@ -81,9 +82,84 @@ public class Main {
                         System.out.println("\n❌ Usuário não encontrado.");
                     }
                     System.out.println("================================");
+                    break;
+
+                case 5:
+
+                    System.out.println("\n=========== ATUALIZAR ===========");
+
+                    System.out.print("ID do usuario: ");
+                    id = input.nextInt();
+                    input.nextLine();
+
+                    int opcaoAtualizar;
+
+                    do {
+
+                        System.out.println("\nQual campo você quer atualizar:");
+                        System.out.println("1 - Nome");
+                        System.out.println("2 - Email");
+                        System.out.println("3 - CPF");
+                        System.out.println("4 - Senha");
+                        System.out.println("5 - Data de nascimento");
+                        System.out.println("0 - Sair");
+
+                        opcaoAtualizar = input.nextInt();
+                        input.nextLine();
+
+                        String campo = "";
+
+                        switch (opcaoAtualizar) {
+
+                            case 1:
+                                campo = "nome";
+                                break;
+
+                            case 2:
+                                campo = "email";
+                                break;
+
+                            case 3:
+                                campo = "cpf";
+                                break;
+
+                            case 4:
+                                campo = "senha";
+                                break;
+
+                            case 5:
+                                campo = "datanascimento";
+                                break;
+
+                            case 0:
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida");
+                                continue;
+                        }
+
+                        if (opcaoAtualizar != 0) {
+
+                            System.out.print("Digite o novo valor: ");
+                            String novoValor = input.nextLine();
+
+                            boolean atualizado = usuario.atualizarUsuarioPorID(id, campo, novoValor);
+
+                            if (atualizado) {
+                                System.out.println("✅ Usuário atualizado com sucesso!");
+                            } else {
+                                System.out.println("❌ Usuário não encontrado.");
+                            }
+                        }
+
+                    } while (opcaoAtualizar != 0);
+
+                    break;
             }
 
-        } while (opcao != 0);
-            input.close();
+        }
+        while (opcao != 0);
+        input.close();
     }
 }

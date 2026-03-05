@@ -38,5 +38,23 @@ public class usuario {//classe do usuario
     public String getCpf() {
         return cpf;
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+//setters
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
